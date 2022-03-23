@@ -17,17 +17,18 @@ namespace BinaryTree
             {
                 before = after;
                 if (value < after.data)
-                    after = after.LeftNode;
+                    after = after.left;
                 else if (value > after.data)
-                    after = after.RightNode;
+                    after = after.right;
                 else
                 {
                     return false;
                 }
             }
 
-            Node newNode = new Node();
+            Node newNode = new Node(56);
             newNode.data = value;
+
             if (this.Root == null)
             {
                 this.Root = newNode;
@@ -35,9 +36,9 @@ namespace BinaryTree
             else
             {
                 if (value < before.data)
-                    before.LeftNode = newNode;
+                    before.left = newNode;
                 else
-                    before.RightNode = newNode;
+                    before.right = newNode;
             }
             return true;
 
@@ -48,8 +49,8 @@ namespace BinaryTree
             if (Parent != null)
             {
                 Console.WriteLine(Parent.data + " ");
-                TraversePreorder(Parent.LeftNode);
-                TraversePreorder(Parent.RightNode);
+                TraversePreorder(Parent.left);
+                TraversePreorder(Parent.right);
 
             }
 
